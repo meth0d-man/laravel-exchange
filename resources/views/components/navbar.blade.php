@@ -2,7 +2,7 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
-                <img class="h-8 w-auto" src="../../images/polkadot-logo.svg" alt="polkadot image">
+                <img class="h-8 w-auto" src="{{asset('images/polkadot-logo.svg')}}" alt="polkadot image">
             </a>
             <h2 class="text-4xl ml-8 font-bold dark:text-white">Laravel project</h2>
         </div>
@@ -48,7 +48,7 @@
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Laravel Project</span>
-                    <img class="h-8 w-auto" src="../../images/polkadot-logo.svg" alt="polkadot image">
+                    <img class="h-8 w-auto" src="{{asset('images/polkadot-logo.svg')}}" alt="polkadot image">
                 </a>
             </div>
             <div class="mt-6 flow-root">
