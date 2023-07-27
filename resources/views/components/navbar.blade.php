@@ -21,8 +21,25 @@
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/login" class="text-sm mr-5 font-semibold leading-6 text-gray-900">Log in</a>
-            <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Register</a>
+            @auth
+                <div>
+                    <span class="font-medium">Welcome {{auth()->user()->name}}</span>
+                </div>
+                <div class="flex items-center lg:order-2">
+                    <div class="hidden mt-2 mr-4 sm:inline-block">
+                        <a class="github-button" href="https://github.com/themesberg/landwind" data-size="large" data-icon="octicon-star" data-show-count="true" aria-label="Star themesberg/landwind on GitHub">Star</a>
+                    </div>
+                    <form class="inline" method="POST" action="/logout">
+                        @csrf
+                        <button type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Logout</button>
+                    </form>
+                    @else
+                        <div class="mx-2">
+                            <a href="/login" class="text-sm mr-5 font-semibold leading-6 text-gray-900">Log in</a>
+                            <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Register</a>
+                        </div>
+                    @endauth
+
         </div>
     </nav>
     <div class="lg:hidden" role="dialog" aria-modal="true">
