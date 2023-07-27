@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CurrenciesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/register', [UsersController::class, 'create'])->middleware('guest');
+
+Route::get('/currencies', [CurrenciesController::class, 'list'])->name('list')->middleware('guest');
 
 Route::post('/users', [UsersController::class, 'store']);
 
