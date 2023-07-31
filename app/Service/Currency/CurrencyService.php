@@ -3,9 +3,12 @@
 namespace App\Service\Currency;
 
 use GuzzleHttp\Client;
+use App\Service\Currency\Provider\Repository\CurrencyRepository;
 
 class CurrencyService
 {
+    public function __construct(private readonly CurrencyRepository $repository) {}
+
     public function getCurrenciesData(): mixed
     {
         $client = new Client();
@@ -14,4 +17,8 @@ class CurrencyService
         return json_decode($apiResponse->getBody()->getContents());
     }
 
+    public function getCurrency(int $id)
+    {
+        return $this->repository->get($id);
+    }
 }

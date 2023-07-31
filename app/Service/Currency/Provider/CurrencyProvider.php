@@ -8,7 +8,7 @@ interface CurrencyProvider
 {
     public function getList(): array;
 
-    public function get(string $id): Model;
+    public function get(int $id): object;
 
     public function updateCurrencies($data);
 

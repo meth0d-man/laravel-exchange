@@ -3,7 +3,6 @@
 namespace App\Service\Currency\Provider\Repository;
 
 use App\Service\Currency\Provider\CurrencyProvider;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -27,9 +26,11 @@ class CurrencyRepository implements CurrencyProvider
     WHERE name IN ('Japanese Yen (JPY)','British Pound (GBP)','Euro (EUR)')");
     }
 
-    public function get(string $id): Model
+    public function get(int $id): object
     {
-        // TODO: Implement get() method.
+        $currency =  DB::select('select * from currency where id = :id', ['id' => $id]);
+
+        return (object)$currency[0];
     }
 
     public function getList(): array

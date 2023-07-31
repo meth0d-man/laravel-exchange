@@ -30,6 +30,8 @@ Route::post('/logout', [UsersController::class, 'logout'])->middleware('auth');
 
 Route::get('/login', [UsersController::class, 'login'])->name('login')->middleware('guest');
 
+Route::get('/currency/{id}', [CurrenciesController::class, 'getCurrency'])->name('currency')->middleware('guest');
+
 Route::post('/users/authenticate', [UsersController::class, 'authenticate']);
 
 Route::get('/api-currencies', [CurrencyService::class, 'getCurrenciesData'])->name('getCurrenciesData')->middleware('guest');
