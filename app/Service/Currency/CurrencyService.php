@@ -21,4 +21,9 @@ class CurrencyService
     {
         return $this->repository->get($id);
     }
+
+    public function storeOrder($order)
+    {
+        return $this->repository->savePurchase($order);
+    }
 }

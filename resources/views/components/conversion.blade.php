@@ -15,10 +15,12 @@
 <body>
 <div class="wrapper">
     <header>Currency Converter</header>
-    <form action="#">
+    <form method="POST" action="/save-order">
+        @csrf
         <div class="amount">
             <p>Enter Amount</p>
-            <input type="text" id="value" value="1">
+            <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
+            <input type="text" name="amount" required="" id="amount" value="1" >
         </div>
         <div class="drop-list">
             <div class="from">
@@ -32,28 +34,28 @@
                 <p>To</p>
                 <div class="select-box">
                     @if($currency->name === 'Japanese Yen (JPY)')
-                    <img src="https://flagcdn.com/48x36/jp.png" alt="flag">
+                        <img src="https://flagcdn.com/48x36/jp.png" alt="flag">
+                        <input name="name" type="hidden" required="" value="{{$currency->name}}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">{{$currency->name}}
                     @elseif($currency->name === 'British Pound (GBP)')
-                    <img src="https://flagcdn.com/48x36/gb.png" alt="flag">
+                        <img src="https://flagcdn.com/48x36/gb.png" alt="flag">
+                        <input name="name" type="hidden" value="{{$currency->name}}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">{{$currency->name}}
                     @elseif($currency->name === 'Euro (EUR)')
                         <img src="https://flagcdn.com/48x36/eu.png" alt="flag">
+                        <input name="name" type="hidden" value="{{$currency->name}}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">{{$currency->name}}
                     @endif
-                    {{$currency->name}}
                 </div>
             </div>
         </div>
-        <div id="exchangeButton">
-        <button onclick="calculateExchangeRate({{$currency->exchange_rate}})">Get Exchange Rate</button>
-        </div>
-        <div id="result">
-        </div>
-
         <div id="purchase">
-        <a href="" >
-            <button>Purchase</button>
-        </a>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">purchase</button>
         </div>
+        <input type="hidden" id="resultInput" name="result">
     </form>
+    <div id="exchangeButton">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="calculateExchangeRate({{$currency->exchange_rate}})">Get Exchange Rate</button>
+    </div>
+    <div id="result">
+    </div>
 </div>
 </body>
 </html>

@@ -36,3 +36,5 @@ Route::post('/users/authenticate', [UsersController::class, 'authenticate']);
 
 Route::get('/api-currencies', [CurrencyService::class, 'getCurrenciesData'])->name('getCurrenciesData')->middleware('guest');
 
+Route::post('/save-order', [CurrenciesController::class, 'savePurchase'])->name('savePurchase')->middleware('guest');
+

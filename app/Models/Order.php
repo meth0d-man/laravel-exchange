@@ -8,4 +8,10 @@ class Order extends Model
 {
     use HasFactory;
 
+    private string $name;
+
+    protected $table = 'order';
+
+    protected $fillable = ['amount', 'name'];
+
 }

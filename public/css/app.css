@@ -23,11 +23,13 @@ body{
 
 #purchase {
     margin-top: 20px;
+    text-align: center;
     display: none;
 }
 
 #exchangeButton {
     padding-top: 20px;
+    text-align: center;
 }
 ::selection{
     color: #fff;
