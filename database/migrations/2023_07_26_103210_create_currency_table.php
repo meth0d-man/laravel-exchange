@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('exchange_rate');
             $table->decimal('surcharge');
+            $table->string('discount');
             $table->timestamps();
         });
     }
