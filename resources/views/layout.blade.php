@@ -54,6 +54,7 @@
     </script>
 </head>
 <body>
+@include('components/flashMessage')
 @yield('content')
 <!DOCTYPE html>
 <html lang="en">

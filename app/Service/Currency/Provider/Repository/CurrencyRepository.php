@@ -2,9 +2,11 @@
 
 namespace App\Service\Currency\Provider\Repository;
 
+use App\Mail\OrderShipped;
 use App\Models\Order;
 use App\Service\Currency\Provider\CurrencyProvider;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 
 class CurrencyRepository implements CurrencyProvider
@@ -31,7 +33,7 @@ class CurrencyRepository implements CurrencyProvider
     {
         $currency =  DB::select('select * from currency where id = :id', ['id' => $id]);
 
-        return (object)$currency[0]; // TO DO
+        return (object)$currency[0];
     }
 
     public function savePurchase(array $data): void
@@ -53,6 +55,8 @@ class CurrencyRepository implements CurrencyProvider
             $order->created_at = Carbon::now()->format('Y-m-d');
 
             $order->save();
+
+            Mail::to('mrvladimir011@gmail.com')->send(new OrderShipped()); // send mail
         }
     }
 }

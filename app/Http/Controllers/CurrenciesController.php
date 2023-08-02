@@ -35,6 +35,6 @@ class CurrenciesController extends Controller
 
         $this->service->storeOrder($formFields);
 
-        return redirect('/')->with('message', 'Order saved');
+        return redirect('/')->with('success', 'Order saved');
     }
 }
