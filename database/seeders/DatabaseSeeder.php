@@ -16,17 +16,20 @@ class DatabaseSeeder extends Seeder
         Currency::factory()->create([
             'name' => 'Japanese Yen (JPY)',
             'exchange_rate' => 107.17,
-            'surcharge' => 7.5
+            'surcharge' => 7.5,
+            'discount' => 0,
         ]);
         Currency::factory()->create([
             'name' => 'British Pound (GBP)',
             'exchange_rate' => 0.711178,
-            'surcharge' => 5
+            'surcharge' => 5,
+            'discount' => 0,
         ]);
         Currency::factory()->create([
             'name' => 'Euro (EUR)',
             'exchange_rate' => 0.884872,
-            'surcharge' => 5
+            'surcharge' => 0,
+            'discount' => 2,
         ]);
         // \App\Models\User::factory(10)->create();
 
